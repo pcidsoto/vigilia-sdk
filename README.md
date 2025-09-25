@@ -1,9 +1,19 @@
-
 # Vigilia SDK & Nota-API
 
 > **Vigilia SDK** es una librería para monitoreo, análisis y visualización de tráfico HTTP en APIs, con arquitectura extensible y soporte para IA. **Nota-API** es una aplicación de ejemplo que demuestra cómo integrar y utilizar Vigilia SDK en una API real.
 
 ---
+## Diagrama de flujo de alto nivel (vigilia-sdk)
+
+<p align="center">
+	<img src="images/diagrama.png" alt="Screenshot diagrama Vigilia SDK" width="700"/>
+</p>
+
+## Ejemplo de dashboard
+
+<p align="center">
+	<img src="images/dashboard.png" alt="Screenshot dashboard Vigilia SDK" width="700"/>
+</p>
 
 ## Resumen de los proyectos
 
@@ -43,17 +53,37 @@ vigilia-sdk/
 ├── index.js       # Punto de entrada
 ```
 
-**Principios aplicados:**
-- **SOLID:**
-	- *Single Responsibility:* Cada módulo tiene una única responsabilidad (ej: adapters, core, dashboard).
-	- *Open/Closed:* Los adaptadores y el evaluador ML pueden extenderse sin modificar el core.
-	- *Liskov Substitution:* Los adaptadores implementan una interfaz común (`StoragePort`).
-	- *Interface Segregation:* Interfaces claras para almacenamiento y monitoreo.
-	- *Dependency Inversion:* El core depende de abstracciones (ports), no de implementaciones concretas.
-- **Patrones de diseño:**
-	- *Adapter:* Para soportar distintos backends de almacenamiento.
-	- *MVC:* En el dashboard web.
-	- *Middleware:* Para interceptar tráfico HTTP.
+
+## Principios SOLID
+
+El SDK y la app de ejemplo siguen los principios SOLID, fundamentales para el diseño de software mantenible y escalable:
+
+- **S**ingle Responsibility (Responsabilidad Única): Cada módulo tiene una única responsabilidad clara.
+- **O**pen/Closed (Abierto/Cerrado): Los módulos están abiertos a extensión pero cerrados a modificación.
+- **L**iskov Substitution (Sustitución de Liskov): Las implementaciones pueden ser intercambiadas sin afectar el sistema.
+- **I**nterface Segregation (Segregación de Interfaces): Interfaces pequeñas y específicas para cada necesidad.
+- **D**ependency Inversion (Inversión de Dependencias): El core depende de abstracciones, no de implementaciones concretas.
+
+---
+
+## Patrones de arquitectura
+
+- **Hexagonal (Ports & Adapters):**
+	- El núcleo de vigilia-sdk está desacoplado de detalles externos (almacenamiento, frameworks, etc) usando puertos (interfaces) y adaptadores. Esto permite cambiar la base de datos o el motor de análisis sin modificar la lógica central.
+	- Carpeta `ports/`: define interfaces.
+	- Carpeta `adapters/`: implementa adaptadores concretos (Mongo, MySQL, memoria).
+
+- **MVC (Model-View-Controller):**
+	- El dashboard web sigue el patrón MVC, separando la lógica de presentación (views), la lógica de control (controllers) y los datos (models).
+	- Carpeta `dashboard/`: contiene controllers, models y views del dashboard.
+
+---
+
+## Patrones de diseño
+
+- **Adapter:** Permite que el core interactúe con distintos sistemas de almacenamiento mediante una interfaz común.
+- **Middleware:** El monitoreo de tráfico se implementa como middleware Express, interceptando todas las peticiones HTTP.
+
 
 ### nota-api
 ```
