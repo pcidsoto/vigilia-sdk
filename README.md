@@ -79,9 +79,19 @@ El SDK y la app de ejemplo siguen los principios SOLID, fundamentales para el di
 
 ---
 
+
 ## Patrones de diseño
 
 - **Adapter:** Permite que el core interactúe con distintos sistemas de almacenamiento mediante una interfaz común.
+
+> [!TIP]
+> [Adapter](https://refactoring.guru/es/design-patterns/adapter)
+
+- **Factory:** Se utiliza para instanciar adaptadores de almacenamiento según la configuración elegida, desacoplando la creación de objetos concretos del resto del sistema.
+
+> [!TIP]
+> [Factory](https://refactoring.guru/es/design-patterns/factory-method)
+
 - **Middleware:** El monitoreo de tráfico se implementa como middleware Express, interceptando todas las peticiones HTTP.
 
 
@@ -143,4 +153,5 @@ Widgets incluidos:
 ---
 
 ## Licencia
-MIT
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
