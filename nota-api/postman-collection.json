@@ -1,0 +1,98 @@
+{
+  "info": {
+    "_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "API Notas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección para probar la API de notas."
+  },
+  "item": [
+    {
+      "name": "Obtener todas las notas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/notas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["notas"]
+        }
+      }
+    },
+    {
+      "name": "Obtener nota por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/notas/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["notas", "{{id}}"]
+        }
+      }
+    },
+    {
+      "name": "Crear nota",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Ejemplo\",\n  \"contenido\": \"Contenido de la nota\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/notas",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["notas"]
+        }
+      }
+    },
+    {
+      "name": "Actualizar nota",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titulo\": \"Nuevo título\",\n  \"contenido\": \"Nuevo contenido\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/notas/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["notas", "{{id}}"]
+        }
+      }
+    },
+    {
+      "name": "Eliminar nota",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/notas/{{id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["notas", "{{id}}"]
+        }
+      }
+    }
+  ]
+}

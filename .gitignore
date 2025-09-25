@@ -1,0 +1,25 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+.env
+.DS_Store
+*.log
+coverage/
+dist/
+build/
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.tgz
+package-lock.json
+yarn.lock
+# Optional: OS generated files
+Thumbs.db
+*.swp
+*.bak
+*.tmp
+# Optional: test output
+junit.xml
